@@ -1,9 +1,5 @@
 package com.ecommerce.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,9 +13,6 @@ import jakarta.persistence.Table;
 
 import java.util.List;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -45,4 +38,65 @@ public class Order {
 
     @Column(nullable = false)
     private double totalPrice;
+
+    public Order() {}
+
+    public Order(Long id, Customer customer, List<Product> products, String status, double totalPrice) {
+        this.id = id;
+        this.customer = customer;
+        this.products = products;
+        this.status = status;
+        this.totalPrice = totalPrice;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", customer=" + customer +
+                ", products=" + products +
+                ", status='" + status + '\'' +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
 }

@@ -3,12 +3,14 @@ package com.ecommerce.service;
 import com.ecommerce.model.Customer;
 import com.ecommerce.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Profile({"customer", "default"})
 public class CustomerService {
 
     @Autowired
