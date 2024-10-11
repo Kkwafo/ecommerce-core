@@ -1,7 +1,7 @@
-package com.ecommerce.core.controller;
+package com.ecommerce.controller;
 
-import com.ecommerce.core.model.Customer;
-import com.ecommerce.core.service.CustomerService;
+import com.ecommerce.model.Customer;
+import com.ecommerce.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

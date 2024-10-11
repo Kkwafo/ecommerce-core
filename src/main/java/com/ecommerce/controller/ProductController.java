@@ -1,7 +1,7 @@
-package com.ecommerce.core.controller;
+package com.ecommerce.controller;
 
-import com.ecommerce.core.model.Product;
-import com.ecommerce.core.service.ProductService;
+import com.ecommerce.model.Product;
+import com.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +27,7 @@ public class ProductController {
         return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public Product createProduct(@RequestBody Product product) {
         return productService.saveProduct(product);
     }
@@ -35,5 +35,10 @@ public class ProductController {
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
+    }
+    
+    @GetMapping("/test")
+    public String test() {
+        return "Test endpoint working!";
     }
 }
